@@ -6,7 +6,7 @@ title pythinstall
 set arg=%2
 set orgPath=%1
 
-if /i EXIST "%localappdata%\Programs\Python\Python313\python.exe" (
+if /i EXIST "%localappdata%\Programs\Python\" (
     echo %w% Python is already install on this computer
     pause >nul
     call %orgPath%\MultiTool.bat
