@@ -6,24 +6,15 @@ title vscinstaller
 set arg=%2
 set orgPath=%1
 
-if /I "!arg!"=="" (
-    if /i EXIST "%localappdata%\Programs\Microsoft VS Code\code.exe" (
-        echo Visual Studio Code is already install on this computer
-        pause >nul
-        %orgPath%\MultiTool.bat
-    )
-    powershell Invoke-WebRequest -Uri "https://vscode.download.prss.microsoft.com/dbazure/download/stable/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/VSCodeUserSetup-x64-1.93.1.exe" -OutFile "%tmp%\vscode.exe"
-    start %temp%\vscode.exe
-    %orgPath%\MultiTool.bat
+if /i EXIST "%localappdata%\Programs\Microsoft VS Code\code.exe" (
+    echo %w% Vs Code is already install on this computer
+    pause >nul
+    call %orgPath%\MultiTool.bat
 )
-
+powershell Invoke-WebRequest -Uri "https://vscode.download.prss.microsoft.com/dbazure/download/stable/384ff7382de624fb94dbaf6da11977bba1ecd427/VSCodeUserSetup-x64-1.94.2.exe" -OutFile "%tmp%\vscode.exe"
 if /I "!arg!"=="/s" (
-    if /i EXIST "%localappdata%\Programs\Microsoft VS Code\code.exe" (
-        echo Visual Studio Code is already install on this computer
-        pause >nul
-        %orgPath%\MultiTool.bat
-    )
-    powershell Invoke-WebRequest -Uri "https://vscode.download.prss.microsoft.com/dbazure/download/stable/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/VSCodeUserSetup-x64-1.93.1.exe" -OutFile "%tmp%\vscode.exe"
     start %temp%\vscode.exe /verysilent
-    %orgPath%\MultiTool.bat
+    call %orgPath%\MultiTool.bat
 )
+start %temp%\vscode.exe
+call %orgPath%\MultiTool.bat
